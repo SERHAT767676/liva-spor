@@ -99,6 +99,12 @@ export default function RootLayout({
   return (
     <html lang="tr" className={`${poppins.variable} h-full antialiased`}>
       <head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-QEG6MQGF6G" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-QEG6MQGF6G');`,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
