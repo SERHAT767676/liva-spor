@@ -13,13 +13,38 @@ export default function Image() {
           width: "100%",
           height: "100%",
           display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          background: "linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 100%)",
+          position: "relative",
           fontFamily: "sans-serif",
         }}
       >
+        {/* Background image */}
+        <img
+          src="https://livasporkulubu.com/images/hero-bg.jpg"
+          width={1200}
+          height={630}
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            filter: "blur(8px) brightness(0.4)",
+          }}
+        />
+        {/* Content overlay */}
+        <div
+          style={{
+            position: "relative",
+            width: "100%",
+            height: "100%",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            background: "rgba(0,0,0,0.35)",
+          }}
+        >
         <img
           src="https://livasporkulubu.com/images/logo.png"
           width={200}
@@ -53,6 +78,7 @@ export default function Image() {
           }}
         >
           Başakşehir / İstanbul
+        </div>
         </div>
       </div>
     ),
