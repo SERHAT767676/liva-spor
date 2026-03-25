@@ -54,6 +54,7 @@ export default function Contact() {
                 href={info.href}
                 target={info.label === "Adres" ? "_blank" : undefined}
                 rel={info.label === "Adres" ? "noopener noreferrer" : undefined}
+                aria-label={`${info.label}: ${info.value}`}
                 className="flex items-start gap-4 p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-teal/30 transition-all duration-300 group"
               >
                 <div className="w-12 h-12 bg-teal/10 text-teal rounded-xl flex items-center justify-center shrink-0 group-hover:bg-teal group-hover:text-white transition-all duration-300">
@@ -70,6 +71,7 @@ export default function Contact() {
               href="https://wa.me/905416445376"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="WhatsApp ile iletişime geç"
               className="flex items-center justify-center gap-3 bg-green-600 hover:bg-green-500 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 mt-4"
             >
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">

@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 export default function Hero() {
   return (
     <section
@@ -25,10 +27,13 @@ export default function Hero() {
         {/* Logo */}
         <div className="relative mb-10">
           <div className="absolute inset-0 bg-white/20 rounded-full blur-2xl scale-125" />
-          <img
+          <Image
             src="/images/logo.png"
-            alt="Liva Spor Kulübü"
+            alt="Liva Spor Kulübü logosu"
+            width={176}
+            height={176}
             className="relative h-32 sm:h-44 w-auto"
+            priority
           />
         </div>
 
@@ -50,12 +55,14 @@ export default function Hero() {
             href="https://wa.me/905416445376"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="WhatsApp ile ücretsiz deneme dersi için iletişime geç"
             className="w-full sm:w-auto bg-teal hover:bg-teal-light text-white font-bold text-sm sm:text-base px-8 sm:px-12 py-4 sm:py-5 rounded-2xl transition-all duration-300 hover:scale-105 shadow-xl shadow-teal/25 tracking-wide text-center"
           >
             Ücretsiz Deneme Dersi
           </a>
           <a
             href="#iletisim"
+            aria-label="İletişim bölümüne git"
             className="w-full sm:w-auto border-2 border-white/30 hover:border-teal/50 text-white font-semibold text-sm sm:text-base px-8 sm:px-12 py-4 sm:py-5 rounded-2xl transition-all duration-300 hover:bg-white/10 tracking-wide text-center"
           >
             İletişim

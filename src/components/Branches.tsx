@@ -38,6 +38,7 @@ export default function Branches() {
                 href="https://wa.me/905416445376"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Cimnastik hakkında WhatsApp ile bilgi al"
                 className="inline-flex items-center gap-2 w-fit font-semibold text-sm px-6 py-3 rounded-xl bg-teal hover:bg-teal-light text-white transition-all duration-300"
               >
                 Bilgi Al
@@ -72,6 +73,7 @@ export default function Branches() {
                 href="https://wa.me/905416445376"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Taekwondo hakkında WhatsApp ile bilgi al"
                 className="inline-flex items-center gap-2 w-fit font-semibold text-sm px-6 py-3 rounded-xl bg-primary hover:bg-primary-light text-white transition-all duration-300"
               >
                 Bilgi Al

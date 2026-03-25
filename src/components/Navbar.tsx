@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -21,11 +22,13 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Logo */}
-        <a href="#hero" className="flex items-center">
+        <a href="#hero" aria-label="Ana sayfaya dön" className="flex items-center">
           <div className="w-10 h-10 rounded-full overflow-hidden bg-white shadow-md flex items-center justify-center">
-            <img
+            <Image
               src="/images/logo.jpg"
-              alt="Liva Spor Kulübü"
+              alt="Liva Spor Kulübü logosu"
+              width={40}
+              height={40}
               className="w-full h-full object-contain scale-125"
             />
           </div>
@@ -34,6 +37,7 @@ export default function Navbar() {
         {/* CTA */}
         <a
           href="#iletisim"
+          aria-label="İletişim bölümüne git"
           className={`font-semibold text-sm px-6 py-2.5 rounded-lg transition-all duration-300 ${
             scrolled
               ? "bg-primary hover:bg-primary-light text-white"
