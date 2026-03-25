@@ -30,12 +30,21 @@ export const metadata: Metadata = {
     siteName: "Liva Spor Kulübü",
     locale: "tr_TR",
     type: "website",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Liva Spor Kulübü - Cimnastik & Taekwondo",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Liva Spor Kulübü | Cimnastik & Taekwondo",
     description:
       "Başakşehir'de profesyonel cimnastik ve taekwondo eğitimi.",
+    images: ["/opengraph-image"],
   },
   alternates: {
     canonical: "https://livasporkulubu.com",
