@@ -94,7 +94,7 @@ export default function Contact() {
           {/* Map */}
           <div className="rounded-2xl overflow-hidden border border-white/10 h-[400px]">
             <iframe
-              src="https://maps.google.com/maps?q=Liva+Spor+Kulübü+Cimnastik+Salonu+Başakşehir+İstanbul&t=&z=17&ie=UTF8&iwloc=&output=embed"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d375.8842057379415!2d28.718762345515596!3d41.08923750426458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caa7002bdefeb7%3A0xb7ad4aefb219d4f2!2sLiva%20Spor%20Kul%C3%BCb%C3%BC%20Cimnastik%20Salonu!5e0!3m2!1str!2str!4v1774721073467!5m2!1str!2str"
               width="100%"
               height="100%"
               style={{ border: 0 }}
