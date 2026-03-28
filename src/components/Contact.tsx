@@ -29,7 +29,7 @@ export default function Contact() {
       ),
       label: "Adres",
       value: "Şahintepe, Muratdere Cd., 34494 Başakşehir/İstanbul",
-      href: "https://maps.google.com/?q=Şahintepe+Muratdere+Cd+Başakşehir+İstanbul",
+      href: "https://maps.google.com/?q=Liva+Spor+Kulübü+Cimnastik+Salonu+Başakşehir+İstanbul",
     },
     {
       icon: (
@@ -94,7 +94,7 @@ export default function Contact() {
           {/* Map */}
           <div className="rounded-2xl overflow-hidden border border-white/10 h-[400px]">
             <iframe
-              src="https://maps.google.com/maps?q=İbrahim+Koçaslan+Ortaokulu+Başakşehir+İstanbul&t=&z=17&ie=UTF8&iwloc=&output=embed"
+              src="https://maps.google.com/maps?q=Liva+Spor+Kulübü+Cimnastik+Salonu+Başakşehir+İstanbul&t=&z=17&ie=UTF8&iwloc=&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0 }}
