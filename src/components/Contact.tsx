@@ -28,7 +28,7 @@ export default function Contact() {
         </svg>
       ),
       label: "Adres",
-      value: "Şahintepe, Muratdere Cd., 34494 Başakşehir/İstanbul",
+      value: "Liva Spor Kulübü Cimnastik Salonu, Şahintepe, Muratdere Cd., 34494 Başakşehir/İstanbul",
       href: "https://maps.google.com/?q=Liva+Spor+Kulübü+Cimnastik+Salonu+Başakşehir+İstanbul",
     },
     {
