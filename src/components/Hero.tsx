@@ -21,14 +21,17 @@ const PARTICLES = [
 ];
 
 export default function Hero() {
-  // Sinematik video arka plan: sadece masaüstü + animasyon isteyen kullanıcı,
-  // ve LCP boyandıktan sonra devreye girer (fotoğraf poster olarak kalır)
-  const [showVideo, setShowVideo] = useState(false);
+  // Sinematik video arka plan: animasyon isteyen kullanıcıda, LCP boyandıktan
+  // sonra devreye girer (fotoğraf poster olarak kalır). Mobil dikey sürüm alır.
+  const [videoSrc, setVideoSrc] = useState<string | null>(null);
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    if (!window.matchMedia("(min-width: 768px)").matches) return;
-    const t = setTimeout(() => setShowVideo(true), 1200);
+    const mobile = !window.matchMedia("(min-width: 768px)").matches;
+    const t = setTimeout(
+      () => setVideoSrc(mobile ? "/videos/hero-bg-mobil.mp4" : "/videos/hero-bg.mp4"),
+      1200
+    );
     return () => clearTimeout(t);
   }, []);
 
@@ -78,7 +81,7 @@ export default function Hero() {
       />
 
       {/* Sinematik video arka plan — fotoğrafın üzerine yumuşak geçişle biner */}
-      {showVideo && (
+      {videoSrc && (
         <video
           autoPlay
           loop
@@ -92,7 +95,7 @@ export default function Hero() {
             filter: "brightness(.62) saturate(1.15)",
             animation: "liva-fade-up 1.6s ease-out both",
           }}
-          src="/videos/hero-bg.mp4"
+          src={videoSrc}
         />
       )}
 

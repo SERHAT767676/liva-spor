@@ -3,7 +3,12 @@
 > Her oturumda önce `CLAUDE.md` (proje anayasası, C:\Users\serha altındaki oturum notu), sonra bu dosya okunur.
 > Proje klasörü: `c:\Users\serha\OneDrive\Masaüstü\kodlama\liva-spor`
 
-## Durum: FAZ 1 onaylandı ✅ — FAZ 2 sürüyor
+## Durum: 🎉 YAYINDA — FAZ 4 tamamlandı (18 Tem 2026)
+
+**Deploy:** commit `622b73c` (site yenileme) + `ff1cf30` (Ispartakule yerel SEO) → Vercel → livasporkulubu.com ✅
+**Canlı doğrulama:** marquee, SSS, FAQPage/areaServed şemaları, tekme+takla geçişleri, tüm videolar (200), WhatsApp linkleri, sitemap/robots — hepsi yayında ✅
+**Canlı Lighthouse (mobil):** Perf 54-55 (baz 54 — altına düşülmedi) / A11y 96 / BP 100 / SEO 100. Sayfa ağırlığı 7.2MB→**1.1MB**, TBT 690→~380ms, CLS 0. Not: simülasyon reduced-motion statik varyantı ölçüyor; gerçek tarayıcı LCP ~1s ölçüldü.
+**Gelecek iyileştirme adayları:** hero'dan framer-motion'ı tamamen çıkarıp Lighthouse-sim LCP'yi düşürmek (85+ hedefi için ana kaldıraç); Google Business Profile + Search Console kaydı (Ispartakule aramaları için kritik); antrenör bölümü (fotoğraflar gelirse); Seviye 2 figür poz sekansı.
 
 ---
 

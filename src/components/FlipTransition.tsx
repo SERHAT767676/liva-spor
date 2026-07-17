@@ -32,14 +32,14 @@ export default function FlipTransition() {
         { isMobile: "(max-width: 767px)", isDesktop: "(min-width: 768px)" },
         (mmCtx) => {
           const { isMobile } = mmCtx.conditions as { isMobile: boolean };
-          const tl = gsap.timeline({
-            scrollTrigger: {
-              trigger: stage,
-              start: "top top",
-              end: isMobile ? "+=1300" : "+=1800",
-              scrub: 0.4,
-              pin: true,
-            },
+          // Sahne görünür olunca animasyon kendiliğinden baştan sona oynar
+          const tl = gsap.timeline({ paused: true });
+          tl.timeScale(2);
+          ScrollTrigger.create({
+            trigger: stage,
+            start: "top 55%",
+            once: true,
+            onEnter: () => tl.play(),
           });
 
           tl.fromTo(".liva-gymnast", { x: 0 }, { x: "185vw", duration: 5, ease: "none" })

@@ -107,14 +107,14 @@ export default function KickTransition() {
         { isMobile: "(max-width: 767px)", isDesktop: "(min-width: 768px)" },
         (mmCtx) => {
           const { isMobile } = mmCtx.conditions as { isMobile: boolean };
-          const tl = gsap.timeline({
-            scrollTrigger: {
-              trigger: stage,
-              start: "top top",
-              end: isMobile ? "+=1600" : "+=2400",
-              scrub: 0.4,
-              pin: true,
-            },
+          // Sahne görünür olunca animasyon kendiliğinden baştan sona oynar
+          const tl = gsap.timeline({ paused: true });
+          tl.timeScale(2.2);
+          ScrollTrigger.create({
+            trigger: stage,
+            start: "top 55%",
+            once: true,
+            onEnter: () => tl.play(),
           });
 
           tl.fromTo(".liva-kicker", { x: "-70vw", opacity: 0 }, { x: 0, opacity: 1, duration: 2, ease: "power2.out" })
@@ -144,7 +144,15 @@ export default function KickTransition() {
               ease: "power2.in",
             }, "fall")
             .to(svg, { opacity: 0, duration: 1 }, "fall+=0.8")
-            .to(".liva-kicker", { x: "-8vw", scale: 0.85, duration: 2, ease: "power1.inOut" }, "fall+=0.5")
+            // Mobilde figür splash yazısını kapatmasın: küçülüp sol alt köşeye çekilir
+            .to(".liva-kicker", {
+              x: isMobile ? "-30vw" : "-8vw",
+              y: isMobile ? "12vh" : 0,
+              scale: isMobile ? 0.45 : 0.85,
+              opacity: isMobile ? 0.55 : 1,
+              duration: 2,
+              ease: "power1.inOut",
+            }, "fall+=0.5")
             .fromTo(".liva-splash > *", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 1.6, stagger: 0.25 }, "fall+=1.2")
             .to({}, { duration: 1 });
         }
