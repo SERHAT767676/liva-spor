@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://livasporkulubu.com"),
   title: "Liva Spor Kulübü | Cimnastik & Taekwondo - Başakşehir",
   description:
-    "Liva Spor Kulübü - Başakşehir'de profesyonel cimnastik ve taekwondo eğitimi. Milli sporcu antrenörlerle geleceğin şampiyonlarını yetiştiriyoruz.",
+    "Liva Spor Kulübü - Başakşehir'de profesyonel cimnastik ve taekwondo eğitimi. Milli sporcu antrenörlerle geleceğin şampiyonlarını yetiştiriyoruz. Ücretsiz deneme dersi için hemen iletişime geçin.",
   keywords: [
     "cimnastik",
     "taekwondo",
@@ -50,9 +50,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://livasporkulubu.com",
   },
-  verification: {
-    google: "GOOGLE_SEARCH_CONSOLE_VERIFICATION_CODE",
-  },
+  ...(process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION
+    ? { verification: { google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION } }
+    : {}),
 };
 
 const jsonLd = {
@@ -62,6 +62,23 @@ const jsonLd = {
   url: "https://livasporkulubu.com",
   telephone: "+905416445376",
   email: "ist.livasporkulubu@gmail.com",
+  image: "https://livasporkulubu.com/images/hero-bg.jpg",
+  logo: "https://livasporkulubu.com/images/logo.png",
+  sameAs: ["https://www.instagram.com/istanbullivasporkulubu"],
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "15:00",
+      closes: "20:30",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Saturday", "Sunday"],
+      opens: "10:00",
+      closes: "17:00",
+    },
+  ],
   address: {
     "@type": "PostalAddress",
     streetAddress: "Şahintepe, Muratdere Cd.",
@@ -98,14 +115,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="tr" className={`${poppins.variable} h-full antialiased`}>
+    <html lang="tr" className={`${poppins.variable} antialiased`}>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-full flex flex-col">
+      <body>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-QEG6MQGF6G"
           strategy="afterInteractive"
