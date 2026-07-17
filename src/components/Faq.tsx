@@ -20,6 +20,10 @@ const faqs = [
     a: "Hafta içi 15:00–20:30, hafta sonu 10:00–17:00 aralığında seviyeye göre gruplar halinde ders yapılır. Güncel program ve uygun kontenjan için iletişime geçin.",
   },
   {
+    q: "Salonunuz nerede? Hangi bölgelere yakınsınız?",
+    a: "Salonumuz Başakşehir Ispartakule bölgesinde, Şahintepe Muratdere Caddesi üzerindedir. Ispartakule, Bahçeşehir ve çevresinden ulaşım oldukça kolaydır — cimnastik ve taekwondo (tekvando) derslerimiz için yol tarifini WhatsApp'tan anında gönderebiliriz.",
+  },
+  {
     q: "Kayıt için ne yapmam gerekiyor?",
     a: "WhatsApp'tan mesaj atmanız yeterli — deneme dersinizi planlayalım, sorularınızı yanıtlayalım. Dilerseniz salonumuza gelip yerinde de görüşebilirsiniz.",
   },

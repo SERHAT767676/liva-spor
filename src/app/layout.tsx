@@ -12,14 +12,22 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://livasporkulubu.com"),
-  title: "Liva Spor Kulübü | Cimnastik & Taekwondo - Başakşehir",
+  title: "Liva Spor Kulübü | Cimnastik & Taekwondo - Başakşehir Ispartakule",
   description:
-    "Liva Spor Kulübü - Başakşehir'de profesyonel cimnastik ve taekwondo eğitimi. Milli sporcu antrenörlerle geleceğin şampiyonlarını yetiştiriyoruz. Ücretsiz deneme dersi için hemen iletişime geçin.",
+    "Liva Spor Kulübü - Başakşehir Ispartakule'de profesyonel cimnastik ve taekwondo eğitimi. Milli sporcu antrenörlerle geleceğin şampiyonlarını yetiştiriyoruz. Ücretsiz deneme dersi için hemen iletişime geçin.",
   keywords: [
     "cimnastik",
     "taekwondo",
+    "tekvando",
     "spor kulübü",
     "başakşehir",
+    "ispartakule",
+    "ispartakule cimnastik",
+    "ispartakule taekwondo",
+    "ispartakule tekvando",
+    "ispartakule spor kulübü",
+    "bahçeşehir cimnastik",
+    "şahintepe spor",
     "liva spor",
     "çocuk spor",
   ],
@@ -65,6 +73,12 @@ const jsonLd = {
   image: "https://livasporkulubu.com/images/hero-bg.jpg",
   logo: "https://livasporkulubu.com/images/logo.png",
   sameAs: ["https://www.instagram.com/istanbullivasporkulubu"],
+  areaServed: [
+    { "@type": "Place", name: "Ispartakule" },
+    { "@type": "Place", name: "Başakşehir" },
+    { "@type": "Place", name: "Şahintepe" },
+    { "@type": "Place", name: "Bahçeşehir" },
+  ],
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",

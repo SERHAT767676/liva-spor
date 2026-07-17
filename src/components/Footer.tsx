@@ -31,8 +31,8 @@ export default function Footer() {
             </div>
           </div>
           <p className="text-white/45 text-sm leading-relaxed max-w-xs">
-            Başakşehir&apos;de milli sporcu antrenörlerle geleceğin şampiyonlarını
-            yetiştiriyoruz.
+            Başakşehir Ispartakule&apos;de milli sporcu antrenörlerle geleceğin
+            şampiyonlarını yetiştiriyoruz.
           </p>
           <a
             href="https://www.instagram.com/istanbullivasporkulubu"

@@ -74,8 +74,8 @@ export default function About() {
             Sporun Gücüne <span className="text-primary">İnanıyoruz</span>
           </h2>
           <p className="text-gray text-lg leading-relaxed max-w-2xl">
-            Liva Spor Kulübü olarak, Başakşehir&apos;de cimnastik ve taekwondo
-            branşlarında profesyonel eğitim veriyoruz. Milli sporcu
+            Liva Spor Kulübü olarak, Başakşehir Ispartakule&apos;de cimnastik ve
+            taekwondo branşlarında profesyonel eğitim veriyoruz. Milli sporcu
             antrenörlerimiz eşliğinde, çocuklarınızın hem fiziksel hem de
             zihinsel gelişimini destekliyoruz.
           </p>
