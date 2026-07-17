@@ -239,18 +239,28 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Scroll göstergesi */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+      {/* Kaydırma daveti — sayfanın devamı olduğunu net söyler */}
+      <motion.a
+        href="#hakkimizda"
+        aria-label="Aşağı kaydır, siteyi keşfet"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 group cursor-pointer"
         style={{ zIndex: 4 }}
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.2, duration: 0.6 }}
+        transition={{ delay: 1.4, duration: 0.6 }}
       >
-        <div className="w-5 h-8 border-2 border-white/20 rounded-full flex justify-center pt-1">
-          <div className="w-1 h-2 bg-teal rounded-full animate-bounce" />
-        </div>
-      </motion.div>
+        <span className="text-white/70 group-hover:text-white text-xs font-semibold tracking-[2px] uppercase transition-colors">
+          Keşfetmek için kaydır
+        </span>
+        <span className="flex flex-col items-center animate-bounce" aria-hidden="true">
+          <svg className="w-5 h-5 text-teal -mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+          </svg>
+          <svg className="w-5 h-5 text-teal/50" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+          </svg>
+        </span>
+      </motion.a>
     </section>
   );
 }
