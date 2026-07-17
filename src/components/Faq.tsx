@@ -20,6 +20,10 @@ const faqs = [
     a: "Hafta içi 15:00–20:30, hafta sonu 10:00–17:00 aralığında seviyeye göre gruplar halinde ders yapılır. Güncel program ve uygun kontenjan için iletişime geçin.",
   },
   {
+    q: "Jimnastik mi cimnastik mi? İkisi aynı şey mi?",
+    a: "İkisi de aynı sporu ifade eder. Günlük dilde 'jimnastik' yazımı daha yaygındır; Türkiye Cimnastik Federasyonu ise resmî olarak 'cimnastik' yazımını kullanır. Yani Ispartakule veya Başakşehir'de jimnastik kursu arıyorsanız doğru yerdesiniz — kulübümüzde federasyon standartlarında cimnastik eğitimi veriyoruz.",
+  },
+  {
     q: "Salonunuz nerede? Hangi bölgelere yakınsınız?",
     a: "Salonumuz Başakşehir Ispartakule bölgesinde, Şahintepe Muratdere Caddesi üzerindedir. Ispartakule, Bahçeşehir ve çevresinden ulaşım oldukça kolaydır — cimnastik ve taekwondo (tekvando) derslerimiz için yol tarifini WhatsApp'tan anında gönderebiliriz.",
   },
