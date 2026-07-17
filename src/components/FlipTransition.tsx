@@ -32,14 +32,15 @@ export default function FlipTransition() {
         { isMobile: "(max-width: 767px)", isDesktop: "(min-width: 768px)" },
         (mmCtx) => {
           const { isMobile } = mmCtx.conditions as { isMobile: boolean };
-          // Sahne görünür olunca animasyon kendiliğinden baştan sona oynar
-          const tl = gsap.timeline({ paused: true });
-          tl.timeScale(2);
-          ScrollTrigger.create({
-            trigger: stage,
-            start: "top 55%",
-            once: true,
-            onEnter: () => tl.play(),
+          // Animasyon scroll'a bağlı: kaydırdıkça ilerler, geri sarılabilir.
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: stage,
+              start: "top top",
+              end: isMobile ? "+=1300" : "+=1800",
+              scrub: 0.4,
+              pin: true,
+            },
           });
 
           tl.fromTo(".liva-gymnast", { x: 0 }, { x: "185vw", duration: 5, ease: "none" })
@@ -47,6 +48,7 @@ export default function FlipTransition() {
             .to(".liva-gymnast", { y: isMobile ? -55 : -90, duration: 1.25, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0)
             .to(".liva-curtain", { clipPath: "inset(0% 0 0 0)", duration: 3.4, ease: "power2.inOut" }, 0.9)
             .fromTo(".liva-curtain > *", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 1.4, stagger: 0.25 }, 2.2)
+            .to(".liva-scroll-hint2", { opacity: 0, duration: 0.6 }, 3.2)
             .to({}, { duration: 0.6 });
         }
       );
@@ -148,6 +150,16 @@ export default function FlipTransition() {
         <p className="max-w-xl leading-relaxed" style={{ color: "#e8fffd" }}>
           İki güçlü branş, tek çatı altında — çocuğunuza en uygun olanı birlikte seçelim.
         </p>
+      </div>
+
+      {/* Kaydırma hatırlatıcısı — sahne boyunca görünür, sonda kaybolur */}
+      <div className="liva-scroll-hint2 absolute bottom-5 left-1/2 -translate-x-1/2 z-[20] pointer-events-none">
+        <span className="flex items-center gap-2 bg-black/50 backdrop-blur-sm text-white/90 text-xs font-semibold tracking-[2px] uppercase px-5 py-2.5 rounded-full border border-teal/30 animate-pulse">
+          <svg className="w-4 h-4 text-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+          </svg>
+          Kaydırmaya devam et
+        </span>
       </div>
 
       {/* DEV cimnastikçi — ekranı kaplayarak takla atar */}

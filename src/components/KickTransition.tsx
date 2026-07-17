@@ -107,14 +107,16 @@ export default function KickTransition() {
         { isMobile: "(max-width: 767px)", isDesktop: "(min-width: 768px)" },
         (mmCtx) => {
           const { isMobile } = mmCtx.conditions as { isMobile: boolean };
-          // Sahne görünür olunca animasyon kendiliğinden baştan sona oynar
-          const tl = gsap.timeline({ paused: true });
-          tl.timeScale(2.2);
-          ScrollTrigger.create({
-            trigger: stage,
-            start: "top 55%",
-            once: true,
-            onEnter: () => tl.play(),
+          // Animasyon scroll'a bağlı: kaydırdıkça ilerler, geri sarılabilir.
+          // Sahne boyunca "kaydırmaya devam et" hatırlatıcısı görünür.
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: stage,
+              start: "top top",
+              end: isMobile ? "+=1600" : "+=2400",
+              scrub: 0.4,
+              pin: true,
+            },
           });
 
           tl.fromTo(".liva-kicker", { x: "-70vw", opacity: 0 }, { x: 0, opacity: 1, duration: 2, ease: "power2.out" })
@@ -146,14 +148,15 @@ export default function KickTransition() {
             .to(svg, { opacity: 0, duration: 1 }, "fall+=0.8")
             // Mobilde figür splash yazısını kapatmasın: küçülüp sol alt köşeye çekilir
             .to(".liva-kicker", {
-              x: isMobile ? "-30vw" : "-8vw",
-              y: isMobile ? "12vh" : 0,
-              scale: isMobile ? 0.45 : 0.85,
-              opacity: isMobile ? 0.55 : 1,
+              x: isMobile ? "-30vw" : "-14vw",
+              y: isMobile ? "12vh" : "6vh",
+              scale: isMobile ? 0.45 : 0.68,
+              opacity: isMobile ? 0.55 : 0.9,
               duration: 2,
               ease: "power1.inOut",
             }, "fall+=0.5")
             .fromTo(".liva-splash > *", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 1.6, stagger: 0.25 }, "fall+=1.2")
+            .to(".liva-scroll-hint", { opacity: 0, duration: 0.6 }, "fall+=1")
             .to({}, { duration: 1 });
         }
       );
@@ -251,6 +254,16 @@ export default function KickTransition() {
         <i style={{ position: "absolute", top: "8%", left: 0, width: "80%", height: 5, borderRadius: 5, background: "linear-gradient(90deg,#2EC4B6,transparent)" }} />
         <i style={{ position: "absolute", top: "46%", left: "8%", width: "92%", height: 7, borderRadius: 5, background: "linear-gradient(90deg,#fff,transparent)" }} />
         <i style={{ position: "absolute", top: "82%", left: "4%", width: "70%", height: 5, borderRadius: 5, background: "linear-gradient(90deg,#2EC4B6,transparent)" }} />
+      </div>
+
+      {/* Kaydırma hatırlatıcısı — sahne boyunca görünür, sonda kaybolur */}
+      <div className="liva-scroll-hint absolute bottom-5 left-1/2 -translate-x-1/2 z-[20] pointer-events-none">
+        <span className="flex items-center gap-2 bg-black/50 backdrop-blur-sm text-white/90 text-xs font-semibold tracking-[2px] uppercase px-5 py-2.5 rounded-full border border-teal/30 animate-pulse">
+          <svg className="w-4 h-4 text-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+          </svg>
+          Kaydırmaya devam et
+        </span>
       </div>
 
       {/* DEV taekwondocu */}

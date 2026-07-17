@@ -240,10 +240,11 @@ export default function Hero() {
       </div>
 
       {/* Kaydırma daveti — sayfanın devamı olduğunu net söyler */}
-      <motion.a
-        href="#hakkimizda"
+      <motion.button
+        type="button"
+        onClick={() => window.scrollBy({ top: window.innerHeight * 0.95, behavior: "smooth" })}
         aria-label="Aşağı kaydır, siteyi keşfet"
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 group cursor-pointer"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 group cursor-pointer bg-transparent border-0"
         style={{ zIndex: 4 }}
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
@@ -260,7 +261,7 @@ export default function Hero() {
             <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
           </svg>
         </span>
-      </motion.a>
+      </motion.button>
     </section>
   );
 }

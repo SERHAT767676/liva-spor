@@ -5,7 +5,8 @@
 
 ## Durum: 🎉 YAYINDA — FAZ 4 tamamlandı (18 Tem 2026)
 
-**Deploy:** commit `622b73c` (site yenileme) + `ff1cf30` (Ispartakule yerel SEO) → Vercel → livasporkulubu.com ✅
+**Deploy:** `622b73c` (site yenileme) + `ff1cf30` (Ispartakule SEO) + `63573a3` (mobil düzeltmeler + otomatik geçişler + Ai filigran temizliği) + `0786438` (kaydırma daveti) → Vercel → livasporkulubu.com ✅
+**18 Tem mobil turu:** hero videosu mobilde de oynuyor (dikey 1.4MB sürüm); tekme figürü mobil sonda küçülüp köşeye çekiliyor; geçişler scrub değil sahneye gelince otomatik oynuyor (pin yok — kimse takılmıyor); hero'da "Keşfetmek için kaydır" daveti; taekwondo görselindeki Ai filigranı silindi (canlıda doğrulandı).
 **Canlı doğrulama:** marquee, SSS, FAQPage/areaServed şemaları, tekme+takla geçişleri, tüm videolar (200), WhatsApp linkleri, sitemap/robots — hepsi yayında ✅
 **Canlı Lighthouse (mobil):** Perf 54-55 (baz 54 — altına düşülmedi) / A11y 96 / BP 100 / SEO 100. Sayfa ağırlığı 7.2MB→**1.1MB**, TBT 690→~380ms, CLS 0. Not: simülasyon reduced-motion statik varyantı ölçüyor; gerçek tarayıcı LCP ~1s ölçüldü.
 **Gelecek iyileştirme adayları:** hero'dan framer-motion'ı tamamen çıkarıp Lighthouse-sim LCP'yi düşürmek (85+ hedefi için ana kaldıraç); Google Business Profile + Search Console kaydı (Ispartakule aramaları için kritik); antrenör bölümü (fotoğraflar gelirse); Seviye 2 figür poz sekansı.
