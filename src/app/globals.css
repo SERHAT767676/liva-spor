@@ -50,6 +50,29 @@ body {
   color: #fff;
 }
 
+/* Üst şerit: opak bant yerine içeriğin altından aktığı cam katman.
+   Saydamlığı kapalı kullanıcıda ve backdrop-filter desteklemeyen
+   tarayıcıda okunabilirlik için opak beyaza düşer. */
+.liva-cam {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+
+@supports not (backdrop-filter: blur(1px)) {
+  .liva-cam {
+    background: rgba(255, 255, 255, 0.96);
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .liva-cam {
+    background: #fff;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
 /* Odak göstergesi — klavye kullanıcısı için.
    Çift halka: sitede hem beyaz, hem koyu, hem turkuaz, hem bordo zemin var;
    tek renk hepsinde WCAG 1.4.11'in 3:1 eşiğini geçmiyor (ölçüldü).
