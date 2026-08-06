@@ -172,8 +172,9 @@ Onaylanan kapsam: **güvenli paket** (#2 karar bekliyor, #12 ve riskli maddeler 
 | **4b** — yıldız sayısını azaltma | Görünüm kararı; sizin talimatınızla ertelendi. |
 | **12** — açık zemin turkuaz metin tonu | **UYGULANDI (`5457015`).** Yeni `--color-teal-text: #0F6E65` yalnızca metin için; marka turkuazı zemin/vurgu olarak aynen duruyor. Ölçüm: beyaz 2.94→**6.11:1**, açık gri 2.70→**5.60:1**, `bg-teal/10` 2.72→**5.64:1**, `bg-teal/5` 2.83→**5.87:1**. |
 | **13** — navbar şeffaflığı | **UYGULANDI (`2d3aa47`).** `bg-white/95`+`blur-md` → %72 beyaz + `blur(20px) saturate(180%)`. Raporda yazdığım okunabilirlik riski **gerçekleşmedi**: gerçek piksel örneklemesiyle ölçülen menü metni kontrastı beyaz bölümde 19.8:1, açık gride 19.3:1, galeride 19.3:1, koyu İletişim bölümünde **10.31:1** — en kötü durum bile AA eşiğinin iki katından fazla. `prefers-reduced-transparency` ve `@supports not (backdrop-filter)` geri dönüşleri eklendi. |
-| **20** — smooth scroll + pin etkileşimi | Riskli grup; gerçek cihaz testi gerekiyor. |
-| **6 (pin'li sahneler)** | ScrollTrigger pin hesabı `dvh` ile iOS'ta kayabilir; gerçek cihaz testi olmadan yapılmadı. |
+| **20** — smooth scroll + pin etkileşimi | **UYGULANDI (`fb7e983`).** `html { scroll-behavior: smooth }` kaldırıldı. Ölçüm: Branşlar 6352px/1666ms → doğrudan varış, Galeri 9863px/1868ms → doğrudan varış. En ağır durum Hero'daki İletişim butonuydu: 12157px (14.1 ekran boyu), yolun **%37'si** pin edilmiş sahne içinden geçiyordu. Etkilenen 18 iç bağlantı tarandı ve listelendi (navbar masaüstü 6 + mobil menü 5 + Hero 1 + footer 6). Hero'daki kaydırma oku smooth kaldı — tek ekran boyu kaydırıyor, hiçbir pin sahnesine girmiyor — ve reduced-motion duyarlı hâle getirildi. |
+| **6 (pin'li sahneler)** | **UYGULANDI (`1950eb3`).** `h-screen` → `h-[100dvh]`. Gerçek telefonda doğrulandı: sahneler tam ekranı kaplıyor, pin sırasında sıçrama yok, kaydırma hatırlatıcısı kesilmiyor, geçişler düzgün. |
+| **B — `scroll-margin-top`** | **DENENDİ, GERİ ALINDI.** Ölçüm gerekçeyi çürüttü: bölümlerin `py-24` (96px) üst padding'i sabit şerit için (60px) zaten yeterli tampon; rozet hiçbir bağlantıda menü altında kalmıyor (0px'te rozet 96px'te, menü altı 60px). 64px eklemek başlıkları 100px aşağı itiyordu. Ölçülen "48px sapma" yalnızca mobil menüden tıklamada oluşuyor (menü kapanırken layout kayması) ve o durumda bile rozet 144px'te, görünür. Gerekçe `globals.css`'e yorum olarak yazıldı. |
 | **22, 25** | Menü easing'i ve gölge dili; kapsam dışı bırakıldı. |
 | **#4'teki `scale: 0`** | Raporda #4'ün parçasıydı ama 4a/4b ayrımında yer almadı. Görünümü değiştirdiği için **sormadan yapılmadı**. |
 
@@ -204,9 +205,11 @@ Talimat gereği düzeltilmedi, not edildi:
 
 1. **375×812'de hero içeriği viewport'a sığmıyor** — "İletişim" butonu ile "Keşfetmek için kaydır" daveti çakışıyor. `#11` ve `#6` sonrası hafifledi ama tamamen çözülmedi. Denetim raporunda yoktu; ekran görüntüsünde tespit edildi.
 2. **`KickTransition.tsx:45-54,140,142`'de `Math.random()`** — çatlak deseni ve cam parçalarının düşüş yönü her yüklemede farklı. `useEffect` içinde olduğu için hidrasyon riski **yok**; kasıtlı bir tasarım tercihi olabilir. #4a kapsamına alınmadı.
-3. **Basma tepkisi süresi 300ms** — `active:scale` geçişleri butonların mevcut 300ms süresini kullanıyor. STANDARDS.md buton basma geri bildirimi için 100-160ms öneriyor. Süre değişikliği #7'nin kapsamı dışındaydı.
+3. **Basma tepkisi süresi 300ms** — `active:scale` geçişleri butonların mevcut 300ms süresini kullanıyor. STANDARDS.md buton basma geri bildirimi için 100-160ms öneriyor. Süre değişikliği #7'nin kapsamı dışındaydı; 6 Ağu'da gündeme geldi ve **bilinçli olarak atlandı** (kullanıcı kararı).
 4. **Reduced-motion'da galeri yıldızlarının opaklığı hâlâ yanıp sönüyor** — `MotionConfig` transform animasyonlarını durduruyor, opaklığı kasıtlı olarak bırakıyor. Vestibüler risk (hareket) giderildi; dekoratif yanıp sönme kaldı.
 5. **`public/images/hero-bg.jpg` (1.2MB)** yalnızca structured data ve opengraph için duruyor, kullanıcıya servis edilmiyor. SEO kuralı gereği dokunulmadı.
+6. **`#sss` yalnızca footer'dan erişilebiliyor** — üst menüde SSS bağlantısı yok. #20 taramasında ortaya çıktı, bir kusur değil ama bilinçli bir karar olup olmadığı doğrulanmadı.
+7. **Hero'daki "İletişim" butonunda varış vurgusu yok** — 12157px'lik atlayıştan sonra kullanıcı aniden yeni bir bölümde beliriyor. Smooth kaydırma çözüm değil (yolun %37'si pin sahnesi); istenirse varışta kısa bir vurgu animasyonu ayrı bir madde olarak ele alınabilir.
 
 ## Not: marka renkleri
 

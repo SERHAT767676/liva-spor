@@ -173,6 +173,11 @@ Faz 0'dan başla. Her fazın sonunda ne yaptığını tek paragrafta özetle, so
 
 ## Tamamlanan Turlar
 
-- **2026-08-06 — Apple design denetimi + güvenli paket (17 madde).** Branch `apple-design-audit`, 18 commit. Detay: `DENETIM-RAPORU.md`.
-- **Bekleyen kararlar:** #2 CTA kontrastı (varyantlar hazır, karar verilmedi), #12, riskli üçlü (#6-pin, #13, #20) — cihaz testi sonrası.
-- **Açık sorun:** 375×812'de hero viewport'a sığmıyor, "İletişim" butonu kaydırma davetiyle çakışıyor (kapsam dışı bulgu).
+- **2026-08-06/07 — Apple design denetimi, tüm maddeler kapandı.** Branch `apple-design-audit`. Detay: `DENETIM-RAPORU.md`.
+  - Güvenli paket (17 madde) + #12 (açık zemin turkuaz metin) + #13 (cam navbar) + #6-pin (dvh) + #20 (smooth scroll/pin) uygulandı; son dördü gerçek telefonda doğrulandı.
+  - **#2 CTA kontrastı: V1 seçildi**, mevcut hâl kalıyor (turkuaz üstü beyaz metin, 2.17:1 — bilinçli kabul edilmiş erişilebilirlik açığı).
+  - **#8 düştü:** ölçümle çürütüldü, Tailwind 4 `hover:` varyantını zaten kapılıyor.
+  - **#4b** (yıldız sayısı) ve **#22/#25** (menü easing'i, gölge dili) uygulanmadı — görünüm kararı / kapsam dışı.
+  - `scroll-margin-top` denendi, ölçümle gereksiz çıktı, geri alındı.
+- **Açık sorun:** 375×812'de hero viewport'a sığmıyor, "İletişim" butonu kaydırma davetiyle çakışıyor (kapsam dışı bulgu; dar ekranlarda veya yatay modda görülür).
+- **Branch merge EDİLMEDİ, push EDİLMEDİ.**
