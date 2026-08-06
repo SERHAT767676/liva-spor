@@ -187,7 +187,7 @@ export default function KickTransition() {
   }
 
   return (
-    <section ref={stageRef} aria-label="Taekwondo tekme geçişi" className="relative w-full h-screen overflow-hidden bg-dark">
+    <section ref={stageRef} aria-label="Taekwondo tekme geçişi" className="relative w-full h-[100dvh] overflow-hidden bg-dark">
       {/* Kırılan ekranın arkasından çıkan tanıtım */}
       <div className="liva-splash absolute inset-0 z-[1] flex flex-col items-center justify-center text-center px-6"
         style={{ background: "linear-gradient(160deg,#8B1A1A 0%, #5e0f0f 45%, #2EC4B6 160%)" }}>

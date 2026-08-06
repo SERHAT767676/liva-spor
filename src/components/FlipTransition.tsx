@@ -74,7 +74,7 @@ export default function FlipTransition() {
   }
 
   return (
-    <section ref={stageRef} aria-label="Cimnastik takla geçişi" className="relative w-full h-screen overflow-hidden"
+    <section ref={stageRef} aria-label="Cimnastik takla geçişi" className="relative w-full h-[100dvh] overflow-hidden"
       style={{ background: "radial-gradient(ellipse at 50% 35%, #24100f 0%, #120909 55%, #0A0A0A 100%)" }}>
       {/* Sahne dokusu — cimnastikçi siyah boşlukta değil, ışıklı sahnede takla atar */}
       <div aria-hidden="true" className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
