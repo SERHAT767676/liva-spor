@@ -103,7 +103,7 @@ export default function Branches() {
 
           {/* Cimnastik — video solda TAM BOY (kırpılmaz), turkuaz panel sağda */}
           <div
-            className="sm:h-[520px] lg:h-[620px] cursor-pointer"
+            className="sm:h-[520px] lg:h-[620px]"
             onMouseMove={handleTilt}
             onMouseLeave={resetTilt}
           >
@@ -185,7 +185,7 @@ export default function Branches() {
 
           {/* Taekwondo — ayna düzen: video sağda TAM BOY, kırmızı panel solda */}
           <div
-            className="sm:h-[520px] lg:h-[620px] cursor-pointer"
+            className="sm:h-[520px] lg:h-[620px]"
             onMouseMove={handleTilt}
             onMouseLeave={resetTilt}
           >
