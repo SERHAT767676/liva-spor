@@ -74,7 +74,7 @@ export default function Faq() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.45, delay: i * 0.08 }}
-              className="group rounded-2xl bg-gray-light border border-black/5 open:border-teal/30 open:shadow-lg open:shadow-teal/5 transition-all duration-300"
+              className="group rounded-2xl bg-gray-light border border-black/5 open:border-teal/30 open:shadow-lg open:shadow-teal/5 transition-[border-color,box-shadow] duration-300"
             >
               <summary className="flex items-center justify-between gap-4 cursor-pointer list-none px-6 py-5 font-semibold text-dark transition-colors duration-150 active:bg-black/5 [&::-webkit-details-marker]:hidden">
                 {f.q}

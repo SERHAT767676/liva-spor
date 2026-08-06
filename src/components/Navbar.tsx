@@ -24,7 +24,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 w-full z-50 transition-[background-color,box-shadow,padding] duration-300 ${
         scrolled
           ? "bg-white/95 backdrop-blur-md shadow-lg py-2"
           : "bg-transparent py-4"
@@ -71,7 +71,7 @@ export default function Navbar() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Ücretsiz deneme dersi için WhatsApp ile iletişime geç"
-          className={`hidden md:block font-semibold text-sm px-6 py-2.5 rounded-lg transition-all duration-300 hover:scale-105 active:scale-[0.97] ${
+          className={`hidden md:block font-semibold text-sm px-6 py-2.5 rounded-lg transition-[background-color,border-color,scale] duration-300 hover:scale-105 active:scale-[0.97] ${
             scrolled
               ? "bg-teal hover:bg-teal-light text-white shadow-md shadow-teal/20"
               : "bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20"
@@ -88,17 +88,17 @@ export default function Navbar() {
         >
           <div className="flex flex-col gap-1.5 w-6">
             <span
-              className={`block h-0.5 rounded-full transition-all duration-300 ${
+              className={`block h-0.5 rounded-full transition-[background-color,opacity,rotate,translate,scale] duration-300 ${
                 scrolled ? "bg-dark" : "bg-white"
               } ${menuOpen ? "rotate-45 translate-y-2" : ""}`}
             />
             <span
-              className={`block h-0.5 rounded-full transition-all duration-300 ${
+              className={`block h-0.5 rounded-full transition-[background-color,opacity,rotate,translate,scale] duration-300 ${
                 scrolled ? "bg-dark" : "bg-white"
               } ${menuOpen ? "opacity-0 scale-x-0" : ""}`}
             />
             <span
-              className={`block h-0.5 rounded-full transition-all duration-300 ${
+              className={`block h-0.5 rounded-full transition-[background-color,opacity,rotate,translate,scale] duration-300 ${
                 scrolled ? "bg-dark" : "bg-white"
               } ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`}
             />

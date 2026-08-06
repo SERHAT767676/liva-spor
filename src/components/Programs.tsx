@@ -132,7 +132,7 @@ export default function Programs() {
             href="https://wa.me/905416445376"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-teal hover:bg-teal-light text-white font-semibold text-sm px-7 py-3.5 rounded-xl transition-all duration-300 hover:scale-105 active:scale-[0.97] shadow-lg shadow-teal/20"
+            className="inline-flex items-center gap-2 bg-teal hover:bg-teal-light text-white font-semibold text-sm px-7 py-3.5 rounded-xl transition-[background-color,scale] duration-300 hover:scale-105 active:scale-[0.97] shadow-lg shadow-teal/20"
           >
             Kayıt için İletişime Geç
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

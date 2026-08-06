@@ -171,7 +171,7 @@ export default function Branches() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Cimnastik hakkında WhatsApp ile bilgi al"
-                    className="inline-flex items-center gap-2 w-fit font-bold text-sm px-6 py-3 rounded-xl bg-white text-teal-dark hover:bg-gray-light transition-all duration-300 hover:scale-105 active:scale-[0.97] shadow-lg"
+                    className="inline-flex items-center gap-2 w-fit font-bold text-sm px-6 py-3 rounded-xl bg-white text-teal-dark hover:bg-gray-light transition-[background-color,scale] duration-300 hover:scale-105 active:scale-[0.97] shadow-lg"
                   >
                     Bilgi Al
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -251,7 +251,7 @@ export default function Branches() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Taekwondo hakkında WhatsApp ile bilgi al"
-                    className="inline-flex items-center gap-2 w-fit font-bold text-sm px-6 py-3 rounded-xl bg-white text-primary hover:bg-gray-light transition-all duration-300 hover:scale-105 active:scale-[0.97] shadow-lg"
+                    className="inline-flex items-center gap-2 w-fit font-bold text-sm px-6 py-3 rounded-xl bg-white text-primary hover:bg-gray-light transition-[background-color,scale] duration-300 hover:scale-105 active:scale-[0.97] shadow-lg"
                   >
                     Bilgi Al
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

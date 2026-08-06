@@ -66,7 +66,7 @@ function GalleryCard({ item }: { item: typeof items[0] }) {
 
       {/* Hafif koyu overlay (yıldız göründüğünde daha iyi kontrast) */}
       <div
-        className="absolute inset-0 transition-all duration-400"
+        className="absolute inset-0 transition-colors duration-300"
         style={{
           background: hovered ? "rgba(0,0,0,0)" : "rgba(0,0,0,0.18)",
         }}

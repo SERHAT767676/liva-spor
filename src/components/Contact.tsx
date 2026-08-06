@@ -87,7 +87,7 @@ export default function Contact() {
                 whileTap={{ scale: 0.98 }}
                 className="flex items-start gap-4 p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-teal/30 transition-colors duration-300 group"
               >
-                <div className="w-12 h-12 bg-teal/10 text-teal rounded-xl flex items-center justify-center shrink-0 group-hover:bg-teal group-hover:text-white transition-all duration-300">
+                <div className="w-12 h-12 bg-teal/10 text-teal rounded-xl flex items-center justify-center shrink-0 group-hover:bg-teal group-hover:text-white transition-colors duration-300">
                   {info.icon}
                 </div>
                 <div>
