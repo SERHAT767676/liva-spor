@@ -254,7 +254,7 @@ export default function Hero() {
         style={{ zIndex: 4 }}
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.4, duration: 0.6 }}
+        transition={{ delay: 0.9, duration: 0.6 }}
         whileTap={{ scale: 0.94 }}
       >
         <span className="text-white/70 group-hover:text-white text-xs font-semibold tracking-[2px] uppercase transition-colors">

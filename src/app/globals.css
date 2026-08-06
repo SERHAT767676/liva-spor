@@ -76,7 +76,7 @@ summary:focus-visible,
 }
 
 .liva-enter {
-  animation: liva-fade-up 0.65s ease-out both;
+  animation: liva-fade-up 0.65s cubic-bezier(0.23, 1, 0.32, 1) both;
 }
 
 /* LCP adayı elemanlar için: opacity hiç 0 olmaz, sadece kayarak girer */
@@ -90,7 +90,7 @@ summary:focus-visible,
 }
 
 .liva-enter-solid {
-  animation: liva-slide-up 0.65s ease-out both;
+  animation: liva-slide-up 0.65s cubic-bezier(0.23, 1, 0.32, 1) both;
 }
 
 /* Dekoratif dokunuşlar — saf CSS, JS yok */
