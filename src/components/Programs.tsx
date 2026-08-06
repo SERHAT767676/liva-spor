@@ -99,7 +99,7 @@ export default function Programs() {
                   >
                     <span
                       className={`font-semibold text-sm ${
-                        item.color === "teal" ? "text-teal-dark" : "text-primary"
+                        item.color === "teal" ? "text-teal-text" : "text-primary"
                       }`}
                     >
                       {item.branch}

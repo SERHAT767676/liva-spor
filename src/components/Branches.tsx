@@ -91,7 +91,7 @@ export default function Branches() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-block bg-teal/10 text-teal-dark border border-teal/25 font-bold text-xs tracking-[3px] uppercase px-5 py-2 rounded-full">
+          <span className="inline-block bg-teal/10 text-teal-text border border-teal/25 font-bold text-xs tracking-[3px] uppercase px-5 py-2 rounded-full">
             Branşlarımız
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-dark tracking-[-0.015em] mt-3">
@@ -119,7 +119,7 @@ export default function Branches() {
               <div className="relative w-full aspect-[9/16] sm:w-auto sm:h-full sm:aspect-[9/16] shrink-0 overflow-hidden rounded-b-none sm:rounded-r-3xl">
                 <LazyVideo src="/videos/cimnastik2-opt.mp4" poster="/videos/cimnastik2-poster.webp" />
                 <GlassFrame accent="rgba(46,196,182,.85)" />
-                <span className="absolute top-4 left-4 z-10 inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm text-teal-dark font-bold text-xs tracking-[2px] uppercase px-4 py-2 rounded-full shadow-lg">
+                <span className="absolute top-4 left-4 z-10 inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm text-teal-text font-bold text-xs tracking-[2px] uppercase px-4 py-2 rounded-full shadow-lg">
                   <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                     <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z" />
                   </svg>
@@ -171,7 +171,7 @@ export default function Branches() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Cimnastik hakkında WhatsApp ile bilgi al"
-                    className="inline-flex items-center gap-2 w-fit font-bold text-sm px-6 py-3 rounded-xl bg-white text-teal-dark hover:bg-gray-light transition-[background-color,scale] duration-300 hover:scale-105 active:scale-[0.97] shadow-lg"
+                    className="inline-flex items-center gap-2 w-fit font-bold text-sm px-6 py-3 rounded-xl bg-white text-teal-text hover:bg-gray-light transition-[background-color,scale] duration-300 hover:scale-105 active:scale-[0.97] shadow-lg"
                   >
                     Bilgi Al
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

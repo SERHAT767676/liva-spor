@@ -168,7 +168,7 @@ export default function GalleryStars() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <span className="inline-block bg-teal/10 text-teal-dark border border-teal/25 font-bold text-xs tracking-[3px] uppercase px-5 py-2 rounded-full">
+          <span className="inline-block bg-teal/10 text-teal-text border border-teal/25 font-bold text-xs tracking-[3px] uppercase px-5 py-2 rounded-full">
             Galeri
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-dark tracking-[-0.015em] mt-3">

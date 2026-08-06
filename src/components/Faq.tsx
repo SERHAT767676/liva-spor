@@ -78,7 +78,7 @@ export default function Faq() {
             >
               <summary className="flex items-center justify-between gap-4 cursor-pointer list-none px-6 py-5 font-semibold text-dark transition-colors duration-150 active:bg-black/5 [&::-webkit-details-marker]:hidden">
                 {f.q}
-                <span className="shrink-0 w-8 h-8 rounded-full bg-teal/10 text-teal-dark flex items-center justify-center transition-transform duration-300 group-open:rotate-45 text-xl font-bold">
+                <span className="shrink-0 w-8 h-8 rounded-full bg-teal/10 text-teal-text flex items-center justify-center transition-transform duration-300 group-open:rotate-45 text-xl font-bold">
                   +
                 </span>
               </summary>
@@ -101,7 +101,7 @@ export default function Faq() {
             href="https://wa.me/905416445376"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-teal-dark font-semibold hover:underline active:opacity-70"
+            className="text-teal-text font-semibold hover:underline active:opacity-70"
           >
             WhatsApp&apos;tan sorun
           </a>{" "}

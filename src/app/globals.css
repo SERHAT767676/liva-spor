@@ -8,6 +8,10 @@
   --color-teal: #2EC4B6;
   --color-teal-light: #3DD5C7;
   --color-teal-dark: #1FA89B;
+  /* Açık zeminde okunabilir turkuaz. Marka turkuazı (--color-teal) zemin ve
+     vurgu rengi olarak aynen kalır; bu yalnızca beyaz/açık gri üstündeki
+     METİN için. teal-dark beyazda 2.94:1 ile AA'nın altındaydı, bu 6.11:1. */
+  --color-teal-text: #0F6E65;
   --color-dark: #0A0A0A;
   --color-dark-light: #1A1A1A;
   --color-gray: #6B7280;
