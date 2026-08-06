@@ -46,6 +46,18 @@ body {
   color: #fff;
 }
 
+/* Odak göstergesi — klavye kullanıcısı için.
+   Çift halka: sitede hem beyaz, hem koyu, hem turkuaz, hem bordo zemin var;
+   tek renk hepsinde WCAG 1.4.11'in 3:1 eşiğini geçmiyor (ölçüldü).
+   Beyaz iç halka koyu/bordo zeminde, siyah dış halka beyaz/turkuaz zeminde okunur. */
+:where(a, button, summary, [tabindex]):focus-visible {
+  outline: 2px solid transparent; /* Windows yüksek kontrast modunda görünür */
+  outline-offset: 2px;
+  box-shadow:
+    0 0 0 2px #fff,
+    0 0 0 5px #000;
+}
+
 /* Hero giriş animasyonu — JS/hidrasyon beklemeden ilk boyamada çalışır (LCP için kritik) */
 @keyframes liva-fade-up {
   from {
