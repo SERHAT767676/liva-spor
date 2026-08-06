@@ -52,7 +52,7 @@ const cardVariants: Variants = {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { duration: 0.55, delay: i * 0.13 },
+    transition: { duration: 0.55, delay: i * 0.06 },
   }),
 };
 

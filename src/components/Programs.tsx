@@ -65,7 +65,7 @@ export default function Programs() {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.55, delay: i * 0.15 }}
+              transition={{ duration: 0.55, delay: i * 0.07 }}
               whileHover={{ y: -6, transition: { duration: 0.2 } }}
               className="rounded-3xl bg-gray-light p-8 flex flex-col gap-6 hover:shadow-xl transition-shadow duration-300"
             >
