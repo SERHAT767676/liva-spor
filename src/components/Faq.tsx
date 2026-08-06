@@ -76,7 +76,7 @@ export default function Faq() {
               transition={{ duration: 0.45, delay: i * 0.08 }}
               className="group rounded-2xl bg-gray-light border border-black/5 open:border-teal/30 open:shadow-lg open:shadow-teal/5 transition-all duration-300"
             >
-              <summary className="flex items-center justify-between gap-4 cursor-pointer list-none px-6 py-5 font-semibold text-dark transition-opacity duration-150 active:opacity-70 [&::-webkit-details-marker]:hidden">
+              <summary className="flex items-center justify-between gap-4 cursor-pointer list-none px-6 py-5 font-semibold text-dark transition-colors duration-150 active:bg-black/5 [&::-webkit-details-marker]:hidden">
                 {f.q}
                 <span className="shrink-0 w-8 h-8 rounded-full bg-teal/10 text-teal-dark flex items-center justify-center transition-transform duration-300 group-open:rotate-45 text-xl font-bold">
                   +
