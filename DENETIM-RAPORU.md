@@ -134,6 +134,80 @@ Kesintisiz uygulanırsa 1-17. sıralar toplam **≈ 5 saat**.
 - `duration-400` sınıfının Tailwind 4'te geçerli olup olmadığı (#23) **doğrulanmadı**.
 - Bu makinede tarayıcı otomasyonu güvenilir çalışmıyor; görsel doğrulama Faz 4'te dev sunucu + elle kontrol ile yapılacak.
 
+---
+
+# Uygulama Kaydı — 6 Ağustos 2026
+
+Branch: `apple-design-audit` · 17 düzeltme commit'i + 1 rapor commit'i · 22 dosya, +913/−80 satır.
+Onaylanan kapsam: **güvenli paket** (#2 karar bekliyor, #12 ve riskli maddeler bu turda yok).
+
+## Uygulananlar
+
+| # | Commit | Ne yapıldı | Doğrulama |
+|---|---|---|---|
+| 3 | `2f13c31`, `bfad873` | Tıklanabilir öğelere basma geri bildirimi: butonlarda `active:scale-[0.97]`, metin linklerinde `active:opacity-60`, framer bileşenlerinde `whileTap` | 7 temsili öğede Playwright ile ölçüldü, 7/7 tepki veriyor |
+| 7 | `890d4da` | 17 yerdeki `transition-all` gerçekten değişen özelliklerle değiştirildi | `transition-all` grep: 0 sonuç; navbar geçişi + menü ölçümle doğrulandı |
+| 1 | `256cba2` | `MotionProvider` (`MotionConfig reducedMotion="user"`) + hero parallax'ta `useReducedMotion` | Öncesi: yıldız transform + parallax çalışıyordu. Sonrası: ikisi de durdu; normal modda çalışmaya devam ediyor |
+| 5 | `3f854bf` | Galeri etiketleri dokunuşta kilitleniyor; hover `pointerType` ile gerçek fareye bağlandı | Mobilde tap sonrası etiket opaklığı 0→1; başka karta dokununca öncekisi kapanıyor; masaüstü hover korundu |
+| 10 | `202fcaf` | Dokunma hedefleri 44px'e çıkarıldı | Ölçüldü: hamburger 40×34→44×44, galeri filtresi 38→46, footer linkleri 20→44 |
+| 4a | `76f3937` | Galeri yıldızlarının çıkış yönü `STAR_CONFIGS`'te sabit `dx/dy` alanlarına taşındı | Filtre geçişlerinde konsol/JS hatası yok |
+| 19 | `0baf0a1` | Footer metin opaklıkları | Hesaplandı: 4.48→**7.30:1**, telif 2.61→**5.37:1** |
+| 14 | `eee3800` | Stagger 130/150ms → 60/70ms | — |
+| 15 | `7ebf56b` | Branşlar kartlarından yanlış `cursor-pointer` | — |
+| 16 | `22ba006` | Klavye odak göstergesi (beyaz+siyah çift halka) | Sekme turunda 8/8 durakta halka doğrulandı |
+| 9 | `7c9610b` | CTA nabzı `box-shadow` → `::after` + `transform`/`opacity` | `::after` transform/opacity örneklendi; eleman gölgesi statik |
+| 11 | `25d9ad6` | Büyük başlıklarda `tracking`/`leading` | 375px'te taşma yok, satır kırılımı bozulmadı |
+| 18 | `2f61fee` | Branşlar maskotuna `sizes="96px"` | — |
+| 17 | `f50a261` | `hero-bg-blur.webp` (800×1067) üretildi: **282KB → 57KB** | 1440px'te blur altında kalite farkı görünmüyor |
+| 6 | `3e8ffac` | Hero `min-h-screen` → `min-h-[100dvh]` (**yalnızca Hero**) | — |
+| 21, 24 | `7de9ed6` | Giriş eğrisi `cubic-bezier(0.23,1,0.32,1)`; kaydırma daveti 1.4s→0.9s | — |
+| 23 | (#7 içinde) | Geçersiz `duration-400` → `transition-colors duration-300` | Aynı satırda olduğu için #7 ile birlikte yapıldı |
+
+## Uygulanmayanlar ve nedenleri
+
+| # | Neden |
+|---|---|
+| **2** — CTA kontrastı | **Karar sizde.** Üç varyantlı karşılaştırma sayfası üretildi (aşağıda). Kod değiştirilmedi. |
+| **8** — hover kapılaması | **Gereksiz çıktı.** Ölçüm: Tailwind 4 `hover:` varyantını zaten `@media (hover: hover)` ile sarıyor (dokunmatik emülasyonda `hover:scale-105` hiç uygulanmadı), framer `whileHover` da dokunuşta tetiklenmiyor. Raporun bu maddesi **düşmüştür**. |
+| **4b** — yıldız sayısını azaltma | Görünüm kararı; sizin talimatınızla ertelendi. |
+| **12** — açık zemin turkuaz metin tonu | Bu tura dahil edilmedi. |
+| **13** — navbar şeffaflığı | Riskli grup; cihaz testinden sonra. |
+| **20** — smooth scroll + pin etkileşimi | Riskli grup; gerçek cihaz testi gerekiyor. |
+| **6 (pin'li sahneler)** | ScrollTrigger pin hesabı `dvh` ile iOS'ta kayabilir; gerçek cihaz testi olmadan yapılmadı. |
+| **22, 25** | Menü easing'i ve gölge dili; kapsam dışı bırakıldı. |
+| **#4'teki `scale: 0`** | Raporda #4'ün parçasıydı ama 4a/4b ayrımında yer almadı. Görünümü değiştirdiği için **sormadan yapılmadı**. |
+
+## Kırılma kontrolü (375px ve 1440px, Playwright)
+
+Her iki genişlikte de: 7/7 bölüm yerinde · mobil menü açılıp kapanıyor (panel 345px) · her iki `pin`'li ScrollTrigger sahnesi pin-spacer üretiyor ve figürler dönüyor · SSS açılıyor · galeri filtresi çalışıyor · 10 WhatsApp bağlantısı · JS/konsol hatası yok.
+
+**SEO korundu:** `h1=1`, `h2=8`, `h3=8`, 2 adet JSON-LD (SportsClub + FAQPage) — denetim öncesiyle aynı. Meta etiketleri, `sitemap.ts`, `robots.ts`, `alt` metinleri, `hero-bg.jpg` (structured data görseli) hiç değiştirilmedi.
+
+## CTA varyant karşılaştırması (madde #2 — karar sizde)
+
+Geçici bir Next.js route'unda gerçek buton sınıflarıyla üretildi, ekran görüntüsü alındı, **route silindi** (canlıya çıkma riski yok, commit edilmedi).
+
+- `Masaüstü/liva-cta-varyantlari.html` — tek dosya, çift tıklayıp açabilirsiniz
+- `Masaüstü/liva-cta-varyantlari-375px.png` — 375px tam sayfa görüntü
+
+| Varyant | Birincil buton | Ölçülen kontrast | AA (4.5:1) |
+|---|---|---|---|
+| V1 — mevcut | beyaz metin / `#2EC4B6` | **2.17:1** | kalır |
+| V2 — koyu metin | `#0A3B36` / `#2EC4B6` | **5.73:1** | geçer |
+| V3 — bordo birincil | beyaz / `#8B1A1A`, turkuaz ikincile geçer | **9.29:1** | geçer |
+
+**Düzeltme:** Raporun ilk sürümünde V2 için "8.9:1" yazmıştım; o değer hesaplanmamış bir tahmindi. Ölçülen değer **5.73:1** — AA eşiğini yine geçiyor ama farkı bilerek karar verin.
+
+## Yolda görülen, kapsam dışı bırakılan bulgular
+
+Talimat gereği düzeltilmedi, not edildi:
+
+1. **375×812'de hero içeriği viewport'a sığmıyor** — "İletişim" butonu ile "Keşfetmek için kaydır" daveti çakışıyor. `#11` ve `#6` sonrası hafifledi ama tamamen çözülmedi. Denetim raporunda yoktu; ekran görüntüsünde tespit edildi.
+2. **`KickTransition.tsx:45-54,140,142`'de `Math.random()`** — çatlak deseni ve cam parçalarının düşüş yönü her yüklemede farklı. `useEffect` içinde olduğu için hidrasyon riski **yok**; kasıtlı bir tasarım tercihi olabilir. #4a kapsamına alınmadı.
+3. **Basma tepkisi süresi 300ms** — `active:scale` geçişleri butonların mevcut 300ms süresini kullanıyor. STANDARDS.md buton basma geri bildirimi için 100-160ms öneriyor. Süre değişikliği #7'nin kapsamı dışındaydı.
+4. **Reduced-motion'da galeri yıldızlarının opaklığı hâlâ yanıp sönüyor** — `MotionConfig` transform animasyonlarını durduruyor, opaklığı kasıtlı olarak bırakıyor. Vestibüler risk (hareket) giderildi; dekoratif yanıp sönme kaldı.
+5. **`public/images/hero-bg.jpg` (1.2MB)** yalnızca structured data ve opengraph için duruyor, kullanıcıya servis edilmiyor. SEO kuralı gereği dokunulmadı.
+
 ## Not: marka renkleri
 
 Görev tanımında koyu kırmızı `#8B0000` ve turkuaz `#40E0D0` yazıyor. Koddaki gerçek değerler farklı: `globals.css:6` `--color-primary: #8B1A1A`, `globals.css:8` `--color-teal: #2EC4B6`. Kural "bu renkleri değiştirme" olduğu için **koddaki mevcut değerlere dokunmadım** ve tüm kontrast hesaplarını gerçek değerlerle yaptım. Görev tanımındaki hex'ler yaklaşık hatırlanmış görünüyor; bir yanlış anlama varsa söyleyin.
