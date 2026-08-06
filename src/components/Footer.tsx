@@ -30,7 +30,7 @@ export default function Footer() {
               <p className="text-teal text-xs font-semibold tracking-[2px] uppercase">Cimnastik &amp; Taekwondo</p>
             </div>
           </div>
-          <p className="text-white/45 text-sm leading-relaxed max-w-xs">
+          <p className="text-white/60 text-sm leading-relaxed max-w-xs">
             Başakşehir Ispartakule&apos;de milli sporcu antrenörlerle geleceğin
             şampiyonlarını yetiştiriyoruz.
           </p>
@@ -53,7 +53,7 @@ export default function Footer() {
           <p className="text-white font-bold text-sm tracking-[2px] uppercase mb-3">Hızlı Erişim</p>
           {quickLinks.map((l) => (
             <a key={l.href} href={l.href}
-              className="flex items-center min-h-11 text-white/45 hover:text-teal text-sm transition-colors duration-200 active:opacity-60 w-fit">
+              className="flex items-center min-h-11 text-white/60 hover:text-teal text-sm transition-colors duration-200 active:opacity-60 w-fit">
               {l.label}
             </a>
           ))}
@@ -62,13 +62,13 @@ export default function Footer() {
         {/* İletişim */}
         <div className="flex flex-col gap-3">
           <p className="text-white font-bold text-sm tracking-[2px] uppercase mb-1">İletişim</p>
-          <a href="tel:+905416445376" className="flex items-center min-h-11 text-white/45 hover:text-teal text-sm transition-colors active:opacity-60 w-fit">
+          <a href="tel:+905416445376" className="flex items-center min-h-11 text-white/60 hover:text-teal text-sm transition-colors active:opacity-60 w-fit">
             +90 541 644 53 76
           </a>
-          <a href="mailto:ist.livasporkulubu@gmail.com" className="flex items-center min-h-11 text-white/45 hover:text-teal text-sm transition-colors active:opacity-60 w-fit break-all">
+          <a href="mailto:ist.livasporkulubu@gmail.com" className="flex items-center min-h-11 text-white/60 hover:text-teal text-sm transition-colors active:opacity-60 w-fit break-all">
             ist.livasporkulubu@gmail.com
           </a>
-          <p className="text-white/45 text-sm leading-relaxed">
+          <p className="text-white/60 text-sm leading-relaxed">
             Şahintepe, Muratdere Cd.<br />34494 Başakşehir / İstanbul
           </p>
           <a
@@ -87,7 +87,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-white/5 py-5">
-        <p className="text-center text-white/30 text-sm px-4">
+        <p className="text-center text-white/50 text-sm px-4">
           &copy; {new Date().getFullYear()} Liva Spor Kulübü. Tüm hakları saklıdır.
         </p>
       </div>
