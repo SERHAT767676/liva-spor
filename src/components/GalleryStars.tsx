@@ -39,16 +39,33 @@ function StarIcon({ size }: { size: number }) {
   );
 }
 
-function GalleryCard({ item }: { item: typeof items[0] }) {
+function GalleryCard({
+  item,
+  dokunmaAcik,
+  onDokun,
+}: {
+  item: typeof items[0];
+  dokunmaAcik: boolean;
+  onDokun: () => void;
+}) {
   const [hovered, setHovered] = useState(false);
+  // Dokunmatikte parmak kalkınca etiket kaybolmasın: dokunuş durumu kilitler.
+  // Hover yalnızca gerçek fareyle çalışsın — dokunuşun ürettiği sahte hover
+  // takılı kalıyordu.
+  const acik = hovered || dokunmaAcik;
 
   return (
     <div
       className="group relative w-full h-full overflow-hidden rounded-2xl cursor-pointer"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      onTouchStart={() => setHovered(true)}
-      onTouchEnd={() => setHovered(false)}
+      onPointerEnter={(e) => {
+        if (e.pointerType === "mouse") setHovered(true);
+      }}
+      onPointerLeave={(e) => {
+        if (e.pointerType === "mouse") setHovered(false);
+      }}
+      onPointerDown={(e) => {
+        if (e.pointerType !== "mouse") onDokun();
+      }}
     >
       {/* Fotoğraf */}
       <Image
@@ -57,8 +74,8 @@ function GalleryCard({ item }: { item: typeof items[0] }) {
         fill
         className="object-cover"
         style={{
-          filter: hovered ? "blur(0px) brightness(1)" : "blur(2.5px) brightness(0.85)",
-          transform: hovered ? "scale(1.06)" : "scale(1)",
+          filter: acik ? "blur(0px) brightness(1)" : "blur(2.5px) brightness(0.85)",
+          transform: acik ? "scale(1.06)" : "scale(1)",
           transition: "filter 0.45s ease, transform 0.5s ease",
         }}
         sizes="(max-width: 768px) 50vw, 25vw"
@@ -68,13 +85,13 @@ function GalleryCard({ item }: { item: typeof items[0] }) {
       <div
         className="absolute inset-0 transition-colors duration-300"
         style={{
-          background: hovered ? "rgba(0,0,0,0)" : "rgba(0,0,0,0.18)",
+          background: acik ? "rgba(0,0,0,0)" : "rgba(0,0,0,0.18)",
         }}
       />
 
       {/* Yıldızlar */}
       <AnimatePresence>
-        {!hovered &&
+        {!acik &&
           STAR_CONFIGS.map((s, i) => (
             <motion.div
               key={i}
@@ -117,13 +134,13 @@ function GalleryCard({ item }: { item: typeof items[0] }) {
       <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
         <span
           className="text-white font-bold text-sm drop-shadow transition-opacity duration-300"
-          style={{ opacity: hovered ? 1 : 0 }}
+          style={{ opacity: acik ? 1 : 0 }}
         >
           {item.label}
         </span>
         <span
           className={`text-white text-xs font-semibold px-3 py-1 rounded-full transition-opacity duration-300 ${branchColor[item.branch]}`}
-          style={{ opacity: hovered ? 1 : 0 }}
+          style={{ opacity: acik ? 1 : 0 }}
         >
           {item.branch}
         </span>
@@ -134,6 +151,8 @@ function GalleryCard({ item }: { item: typeof items[0] }) {
 
 export default function GalleryStars() {
   const [active, setActive] = useState("Tümü");
+  // Dokunmatikte aynı anda tek kart açık kalsın
+  const [dokunulan, setDokunulan] = useState<string | null>(null);
   const filtered = active === "Tümü" ? items : items.filter((i) => i.branch === active);
 
   return (
@@ -194,7 +213,13 @@ export default function GalleryStars() {
                 transition={{ duration: 0.3 }}
                 className={`relative ${item.span}`}
               >
-                <GalleryCard item={item} />
+                <GalleryCard
+                  item={item}
+                  dokunmaAcik={dokunulan === item.label}
+                  onDokun={() =>
+                    setDokunulan((v) => (v === item.label ? null : item.label))
+                  }
+                />
               </motion.div>
             ))}
           </AnimatePresence>
