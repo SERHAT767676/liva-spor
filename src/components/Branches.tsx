@@ -221,7 +221,7 @@ export default function Branches() {
                   style={{ filter: "drop-shadow(0 8px 16px rgba(0,0,0,.35))", animation: "liva-bob 3.6s ease-in-out .4s infinite reverse" }}
                 >
                   <Image src="/images/taekwondo-guncel.webp" alt="" width={650} height={927}
-                    className="w-full h-auto" draggable={false} />
+                    sizes="96px" className="w-full h-auto" draggable={false} />
                 </div>
 
                 <motion.div
