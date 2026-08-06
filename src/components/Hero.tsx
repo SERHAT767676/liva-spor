@@ -76,7 +76,8 @@ export default function Hero() {
         className="absolute pointer-events-none"
         style={{
           inset: "-12%",
-          backgroundImage: "url('/images/hero-bg.webp')",
+          // 10px blur altında gösterildiği için küçük varyant yeterli (282KB -> 57KB)
+          backgroundImage: "url('/images/hero-bg-blur.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center 70%",
           filter: "blur(10px) brightness(1.05) saturate(1.1)",
