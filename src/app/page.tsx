@@ -1,3 +1,4 @@
+import MotionProvider from "@/components/MotionProvider";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
@@ -14,7 +15,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 
 export default function Home() {
   return (
-    <>
+    <MotionProvider>
       <Navbar />
       <main className="w-full">
         <Hero />
@@ -30,6 +31,6 @@ export default function Home() {
       </main>
       <Footer />
       <WhatsAppButton />
-    </>
+    </MotionProvider>
   );
 }

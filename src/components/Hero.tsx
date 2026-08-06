@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
+import { motion, useMotionValue, useTransform, useSpring, useReducedMotion } from "framer-motion";
 
 // Süzülen ışık parçacıkları (sabit konumlar — SSR/istemci uyumu için rastgele yok)
 const PARTICLES = [
@@ -35,6 +35,10 @@ export default function Hero() {
     return () => clearTimeout(t);
   }, []);
 
+  // Parallax doğrudan motion value'ya bağlı olduğu için MotionConfig'in
+  // reducedMotion ayarı bunu kapsamaz — ayrıca kapatılması gerekiyor.
+  const hareketAzalt = useReducedMotion();
+
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
@@ -49,6 +53,7 @@ export default function Hero() {
   const contentY = useTransform(springY, [-0.5, 0.5], [-8, 8]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    if (hareketAzalt) return;
     const rect = e.currentTarget.getBoundingClientRect();
     mouseX.set((e.clientX - rect.left) / rect.width - 0.5);
     mouseY.set((e.clientY - rect.top) / rect.height - 0.5);
