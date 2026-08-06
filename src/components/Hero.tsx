@@ -224,14 +224,14 @@ export default function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="WhatsApp ile ücretsiz deneme dersi için iletişime geç"
-              className="liva-cta-pulse w-full sm:w-auto bg-teal hover:bg-teal-light text-white font-bold text-sm sm:text-base px-8 sm:px-12 py-4 sm:py-5 rounded-2xl transition-all duration-300 hover:scale-105 tracking-wide text-center"
+              className="liva-cta-pulse w-full sm:w-auto bg-teal hover:bg-teal-light text-white font-bold text-sm sm:text-base px-8 sm:px-12 py-4 sm:py-5 rounded-2xl transition-all duration-300 hover:scale-105 active:scale-[0.97] tracking-wide text-center"
             >
               Ücretsiz Deneme Dersi
             </a>
             <a
               href="#iletisim"
               aria-label="İletişim bölümüne git"
-              className="w-full sm:w-auto border-2 border-white/30 hover:border-teal/50 text-white font-semibold text-sm sm:text-base px-8 sm:px-12 py-4 sm:py-5 rounded-2xl transition-all duration-300 hover:bg-white/10 tracking-wide text-center"
+              className="w-full sm:w-auto border-2 border-white/30 hover:border-teal/50 text-white font-semibold text-sm sm:text-base px-8 sm:px-12 py-4 sm:py-5 rounded-2xl transition-all duration-300 hover:bg-white/10 active:scale-[0.97] tracking-wide text-center"
             >
               İletişim
             </a>
@@ -249,6 +249,7 @@ export default function Hero() {
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.4, duration: 0.6 }}
+        whileTap={{ scale: 0.94 }}
       >
         <span className="text-white/70 group-hover:text-white text-xs font-semibold tracking-[2px] uppercase transition-colors">
           Keşfetmek için kaydır

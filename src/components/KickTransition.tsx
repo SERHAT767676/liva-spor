@@ -226,7 +226,7 @@ export default function KickTransition() {
         </p>
         <a href="https://wa.me/905416445376" target="_blank" rel="noopener noreferrer"
           aria-label="WhatsApp ile iletişime geç"
-          className="mt-6 inline-block bg-teal hover:bg-teal-light text-white font-bold px-8 py-4 rounded-2xl transition-colors">
+          className="mt-6 inline-block bg-teal hover:bg-teal-light text-white font-bold px-8 py-4 rounded-2xl transition-colors active:scale-[0.97]">
           Ücretsiz Deneme Dersi
         </a>
       </div>
