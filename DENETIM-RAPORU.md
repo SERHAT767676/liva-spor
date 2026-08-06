@@ -167,11 +167,11 @@ Onaylanan kapsam: **güvenli paket** (#2 karar bekliyor, #12 ve riskli maddeler 
 
 | # | Neden |
 |---|---|
-| **2** — CTA kontrastı | **Karar sizde.** Üç varyantlı karşılaştırma sayfası üretildi (aşağıda). Kod değiştirilmedi. |
+| **2** — CTA kontrastı | **KARAR VERİLDİ (6 Ağu): V1 — mevcut hâl kalıyor.** Turkuaz zemin üzerinde beyaz metin, 2.17:1. Bu, bilinçli olarak kabul edilmiş bir erişilebilirlik açığıdır: güneş altında ve düşük görme keskinliğinde ana çağrı butonunun metni okunmayabilir. Marka görünümü korunmak istendiği için kod değiştirilmedi. |
 | **8** — hover kapılaması | **Gereksiz çıktı.** Ölçüm: Tailwind 4 `hover:` varyantını zaten `@media (hover: hover)` ile sarıyor (dokunmatik emülasyonda `hover:scale-105` hiç uygulanmadı), framer `whileHover` da dokunuşta tetiklenmiyor. Raporun bu maddesi **düşmüştür**. |
 | **4b** — yıldız sayısını azaltma | Görünüm kararı; sizin talimatınızla ertelendi. |
-| **12** — açık zemin turkuaz metin tonu | Bu tura dahil edilmedi. |
-| **13** — navbar şeffaflığı | Riskli grup; cihaz testinden sonra. |
+| **12** — açık zemin turkuaz metin tonu | **UYGULANDI (`5457015`).** Yeni `--color-teal-text: #0F6E65` yalnızca metin için; marka turkuazı zemin/vurgu olarak aynen duruyor. Ölçüm: beyaz 2.94→**6.11:1**, açık gri 2.70→**5.60:1**, `bg-teal/10` 2.72→**5.64:1**, `bg-teal/5` 2.83→**5.87:1**. |
+| **13** — navbar şeffaflığı | **UYGULANDI (`2d3aa47`).** `bg-white/95`+`blur-md` → %72 beyaz + `blur(20px) saturate(180%)`. Raporda yazdığım okunabilirlik riski **gerçekleşmedi**: gerçek piksel örneklemesiyle ölçülen menü metni kontrastı beyaz bölümde 19.8:1, açık gride 19.3:1, galeride 19.3:1, koyu İletişim bölümünde **10.31:1** — en kötü durum bile AA eşiğinin iki katından fazla. `prefers-reduced-transparency` ve `@supports not (backdrop-filter)` geri dönüşleri eklendi. |
 | **20** — smooth scroll + pin etkileşimi | Riskli grup; gerçek cihaz testi gerekiyor. |
 | **6 (pin'li sahneler)** | ScrollTrigger pin hesabı `dvh` ile iOS'ta kayabilir; gerçek cihaz testi olmadan yapılmadı. |
 | **22, 25** | Menü easing'i ve gölge dili; kapsam dışı bırakıldı. |
