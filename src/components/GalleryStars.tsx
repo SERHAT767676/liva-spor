@@ -186,7 +186,7 @@ export default function GalleryStars() {
               key={f}
               onClick={() => setActive(f)}
               aria-pressed={active === f}
-              className={`px-5 py-2 rounded-full text-sm font-semibold transition-colors duration-300 active:scale-95 ${
+              className={`inline-flex items-center justify-center min-h-11 px-5 py-2 rounded-full text-sm font-semibold transition-colors duration-300 active:scale-95 ${
                 active === f
                   ? "bg-teal text-white shadow-lg shadow-teal/25 scale-105"
                   : "bg-white text-gray hover:text-dark hover:shadow-md"

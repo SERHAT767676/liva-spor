@@ -83,7 +83,7 @@ export default function Navbar() {
         {/* Mobile Hamburger */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden p-2 rounded-lg transition-transform duration-150 active:scale-90"
+          className="md:hidden inline-flex items-center justify-center min-w-11 min-h-11 rounded-lg transition-transform duration-150 active:scale-90"
           aria-label="Menüyü aç/kapat"
         >
           <div className="flex flex-col gap-1.5 w-6">
