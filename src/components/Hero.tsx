@@ -248,7 +248,12 @@ export default function Hero() {
       {/* Kaydırma daveti — sayfanın devamı olduğunu net söyler */}
       <motion.button
         type="button"
-        onClick={() => window.scrollBy({ top: window.innerHeight * 0.95, behavior: "smooth" })}
+        onClick={() =>
+          window.scrollBy({
+            top: window.innerHeight * 0.95,
+            behavior: hareketAzalt ? "auto" : "smooth",
+          })
+        }
         aria-label="Aşağı kaydır, siteyi keşfet"
         className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 group cursor-pointer bg-transparent border-0"
         style={{ zIndex: 4 }}

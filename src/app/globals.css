@@ -21,14 +21,15 @@
   --font-sans: var(--font-poppins);
 }
 
-html {
-  scroll-behavior: smooth;
-}
+/* scroll-behavior: smooth BİLEREK kullanılmıyor.
+   Sayfada iki pin'li ScrollTrigger sahnesi var; menüden bir bölüm seçildiğinde
+   yumuşak kaydırma bu sahnelerin içinden geçiyor ve 6000-10000px'lik bir
+   yolculuk boyunca sahneler hızlandırılmış oynuyordu (ölçüldü). Bölüm
+   bağlantıları artık doğrudan hedefe atlıyor.
+   Hero'daki "Keşfetmek için kaydır" butonu tek ekran boyu kaydırdığı için
+   kendi içinde smooth kalmaya devam ediyor (Hero.tsx). */
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
   *,
   *::before,
   *::after {
@@ -37,6 +38,11 @@ html {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* scroll-margin-top BİLEREK eklenmedi: bölümlerin py-24 (96px) üst padding'i
+   sabit şerit için (60px) zaten yeterli tampon. Ölçümle doğrulandı — bölüm
+   rozeti hiçbir bağlantıda menünün altında kalmıyor. Eklenirse başlıklar
+   100px aşağı iner, gereksiz boşluk oluşur. */
 
 body {
   background: var(--color-background);
