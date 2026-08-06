@@ -64,7 +64,7 @@ export default function Contact() {
           <span className="inline-block bg-teal/15 text-teal border border-teal/30 font-bold text-xs tracking-[3px] uppercase px-5 py-2 rounded-full">
             İletişim
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mt-3">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-[-0.015em] mt-3">
             Bize <span className="text-teal">Ulaşın</span>
           </h2>
         </motion.div>

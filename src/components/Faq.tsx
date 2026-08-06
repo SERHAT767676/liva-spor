@@ -61,7 +61,7 @@ export default function Faq() {
           <span className="inline-block bg-primary/10 text-primary border border-primary/25 font-bold text-xs tracking-[3px] uppercase px-5 py-2 rounded-full">
             SSS
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-dark mt-3">
+          <h2 className="text-3xl sm:text-4xl font-bold text-dark tracking-[-0.015em] mt-3">
             Merak <span className="text-primary">Edilenler</span>
           </h2>
         </motion.div>

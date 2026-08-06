@@ -49,7 +49,7 @@ export default function Programs() {
           <span className="inline-block bg-primary/10 text-primary border border-primary/25 font-bold text-xs tracking-[3px] uppercase px-5 py-2 rounded-full">
             Ders Programı
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-dark mt-3">
+          <h2 className="text-3xl sm:text-4xl font-bold text-dark tracking-[-0.015em] mt-3">
             Haftalık <span className="text-primary">Program</span>
           </h2>
           <p className="text-gray mt-4 max-w-xl mx-auto text-base leading-relaxed">

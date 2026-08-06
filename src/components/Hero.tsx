@@ -186,7 +186,7 @@ export default function Hero() {
           </div>
 
           <h1
-            className="liva-enter-solid text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-10 drop-shadow-lg"
+            className="liva-enter-solid text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-[-0.02em] leading-[1.1] mb-10 drop-shadow-lg"
             style={{ animationDelay: "0.15s" }}
           >
             Geleceğin{" "}

@@ -144,7 +144,7 @@ export default function FlipTransition() {
           ))}
         </div>
         <span className="relative inline-block bg-white/20 font-extrabold text-sm tracking-[3px] px-5 py-2 rounded-full backdrop-blur-sm" style={{ color: "#04302c" }}>BRANŞLARIMIZ</span>
-        <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white mt-3 mb-4">
+        <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-[-0.02em] leading-[1.1] mt-3 mb-4">
           Cimnastik &amp; Taekwondo<br />Enerjisi
         </h2>
         <p className="max-w-xl leading-relaxed" style={{ color: "#e8fffd" }}>

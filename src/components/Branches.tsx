@@ -94,7 +94,7 @@ export default function Branches() {
           <span className="inline-block bg-teal/10 text-teal-dark border border-teal/25 font-bold text-xs tracking-[3px] uppercase px-5 py-2 rounded-full">
             Branşlarımız
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-dark mt-3">
+          <h2 className="text-3xl sm:text-4xl font-bold text-dark tracking-[-0.015em] mt-3">
             İki Güçlü <span className="text-primary">Branş</span>
           </h2>
         </motion.div>

@@ -218,7 +218,7 @@ export default function KickTransition() {
           ))}
         </div>
         <span className="relative inline-block bg-black/25 border border-teal/40 text-teal font-extrabold text-sm tracking-[3px] px-5 py-2 rounded-full backdrop-blur-sm">HAKKIMIZDA</span>
-        <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white mt-3 mb-4">
+        <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-[-0.02em] leading-[1.1] mt-3 mb-4">
           Disiplin. Özgüven.<br />Şampiyonluk.
         </h2>
         <p className="max-w-xl text-white/80 leading-relaxed">
