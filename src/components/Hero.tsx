@@ -67,7 +67,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative w-full min-h-[100dvh] flex items-center justify-center overflow-hidden"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
