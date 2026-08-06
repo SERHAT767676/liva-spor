@@ -50,9 +50,14 @@ body {
    Çift halka: sitede hem beyaz, hem koyu, hem turkuaz, hem bordo zemin var;
    tek renk hepsinde WCAG 1.4.11'in 3:1 eşiğini geçmiyor (ölçüldü).
    Beyaz iç halka koyu/bordo zeminde, siyah dış halka beyaz/turkuaz zeminde okunur. */
-:where(a, button, summary, [tabindex]):focus-visible {
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible {
   outline: 2px solid transparent; /* Windows yüksek kontrast modunda görünür */
   outline-offset: 2px;
+  /* Özgüllük eleman+pseudo (0,1,1): tek sınıflı kural gölgelerini ezer,
+     böylece kendi box-shadow'u olan butonlarda da halka görünür. */
   box-shadow:
     0 0 0 2px #fff,
     0 0 0 5px #000;
@@ -109,17 +114,34 @@ body {
   }
 }
 
+/* Nabız atan CTA — yayılan halka box-shadow yerine transform/opacity ile.
+   box-shadow animasyonu her karede paint tetikliyordu ve odak halkasını
+   eziyordu; halka artık ayrı bir katmanda, GPU'da. */
 @keyframes liva-cta-pulse {
-  0%, 100% {
-    box-shadow: 0 0 0 0 rgba(46, 196, 182, 0.5), 0 12px 32px rgba(46, 196, 182, 0.3);
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
   }
-  50% {
-    box-shadow: 0 0 0 16px rgba(46, 196, 182, 0), 0 12px 32px rgba(46, 196, 182, 0.3);
+  70%,
+  100% {
+    transform: scale(1.16);
+    opacity: 0;
   }
 }
 
 .liva-cta-pulse {
-  animation: liva-cta-pulse 2.4s ease-in-out infinite;
+  position: relative;
+  box-shadow: 0 12px 32px rgba(46, 196, 182, 0.3);
+}
+
+.liva-cta-pulse::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 2px solid rgba(46, 196, 182, 0.6);
+  animation: liva-cta-pulse 2.4s ease-out infinite;
+  pointer-events: none;
 }
 
 /* Kayan şerit */
