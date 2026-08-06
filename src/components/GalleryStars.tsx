@@ -20,15 +20,18 @@ const branchColor: Record<string, string> = {
   Taekwondo: "bg-primary/80",
 };
 
-// Her kart için sabit yıldız pozisyonları (yüzde olarak)
+// Her kart için sabit yıldız pozisyonları (yüzde olarak).
+// dx/dy: kaybolurken saçılma yönü — kartın merkezinden dışa doğru.
+// Sabit değerler; render sırasında rastgele üretilmemeli (hidrasyon uyuşmazlığı
+// ve her render'da değişen davranış riski).
 const STAR_CONFIGS = [
-  { top: 15, left: 20, size: 14, delay: 0,    rot: 20  },
-  { top: 30, left: 75, size: 10, delay: 0.08, rot: -15 },
-  { top: 60, left: 15, size: 12, delay: 0.04, rot: 45  },
-  { top: 70, left: 80, size: 9,  delay: 0.12, rot: -30 },
-  { top: 45, left: 50, size: 11, delay: 0.06, rot: 10  },
-  { top: 10, left: 55, size: 8,  delay: 0.1,  rot: -50 },
-  { top: 80, left: 45, size: 10, delay: 0.14, rot: 35  },
+  { top: 15, left: 20, size: 14, delay: 0,    rot: 20,  dx: -52, dy: -58 },
+  { top: 30, left: 75, size: 10, delay: 0.08, rot: -15, dx: 44,  dy: -34 },
+  { top: 60, left: 15, size: 12, delay: 0.04, rot: 45,  dx: -58, dy: 18  },
+  { top: 70, left: 80, size: 9,  delay: 0.12, rot: -30, dx: 50,  dy: 36  },
+  { top: 45, left: 50, size: 11, delay: 0.06, rot: 10,  dx: 8,   dy: -12 },
+  { top: 10, left: 55, size: 8,  delay: 0.1,  rot: -50, dx: 14,  dy: -56 },
+  { top: 80, left: 45, size: 10, delay: 0.14, rot: 35,  dx: -16, dy: 52  },
 ];
 
 function StarIcon({ size }: { size: number }) {
@@ -104,8 +107,8 @@ function GalleryCard({
               exit={{
                 opacity: 0,
                 scale: 0,
-                x: (Math.random() - 0.5) * 120,
-                y: (Math.random() - 0.5) * 120,
+                x: s.dx,
+                y: s.dy,
                 rotate: s.rot * 4,
                 transition: { duration: 0.4, delay: s.delay },
               }}
